@@ -20,20 +20,13 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-require_once(__DIR__ . '/../../../config.php');
-require_once($CFG->libdir . '/adminlib.php');
-admin_externalpage_setup('toolhitteshahuja');
-$id = optional_param('id', 1, PARAM_INT);
-$url = new moodle_url('/admin/tool/hitteshahuja/index.php', ['id' => $id]);
-$PAGE->set_context(context_system::instance());
-$PAGE->set_url($url);
-$PAGE->set_pagelayout('admin');
-$PAGE->set_title(get_string('pluginname', 'tool_hitteshahuja'));
-$PAGE->set_heading(get_string('pluginname', 'tool_hitteshahuja'));
-$output = $PAGE->get_renderer('tool_hitteshahuja');
-echo $output->header();
-echo $output->heading(get_string('pluginname', 'tool_hitteshahuja'));
-$renderable = new \tool_hitteshahuja\output\index_page('Hello World');
-echo $output->render($renderable);
-echo get_string("helloworld", "tool_hitteshahuja", $id);
-echo $output->footer();
+defined('MOODLE_INTERNAL') || die();
+
+// Navigation on this page is only shown when you are in the plugin context.
+function tool_hitteshahuja_extend_navigation_course($navigation, $course)
+{
+    $navigation->add(get_string('pluginname', 'tool_hitteshahuja'),
+        new moodle_url('/admin/tool/hitteshahuja/index.php', ['id' => $course->id]), navigation_node::TYPE_SETTING
+        , null, null, new pix_icon('icon', '', 'tool_hitteshahuja'));
+}
+
