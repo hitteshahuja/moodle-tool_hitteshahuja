@@ -20,20 +20,17 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-require_once(__DIR__ . '/../../../config.php');
-require_once($CFG->libdir . '/adminlib.php');
-admin_externalpage_setup('toolhitteshahuja');
-$url = new moodle_url('/admin/tool/hitteshahuja/index.php');
-$PAGE->set_context(context_system::instance());
-$PAGE->set_url($url);
-$PAGE->set_pagelayout('admin');
-$PAGE->set_title(get_string('pluginname', 'tool_hitteshahuja'));
-$PAGE->set_heading(get_string('pluginname', 'tool_hitteshahuja'));
-$output = $PAGE->get_renderer('tool_hitteshahuja');
-$id = optional_param('id', 1, PARAM_INT);
-echo $output->header();
-echo $output->heading(get_string('pluginname', 'tool_hitteshahuja'));
-$renderable = new \tool_hitteshahuja\output\index_page('Hello World');
-echo $output->render($renderable);
-echo get_string("helloworld", "tool_hitteshahuja", $id);
-echo $output->footer();
+defined('MOODLE_INTERNAL') || die();
+
+class tool_hitteshahuja_renderer extends plugin_renderer_base {
+    /**
+     * Render a toolhitteshahuja_index_page.
+     *
+     * @param renderable $indexpage The chooser.
+     * @return string
+     */
+    public function render_index_page(renderable $indexpage) {
+        $data = $indexpage->export_for_template($this);
+        return $this->render_from_template('tool_hitteshahuja/index_page', $indexpage->export_for_template($this));
+    }
+}
