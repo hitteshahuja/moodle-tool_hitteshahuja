@@ -21,5 +21,12 @@
  */
 
 defined('MOODLE_INTERNAL') || die();
-$string['pluginname'] = 'My first Moodle plugin';
-$string['helloworld'] = 'Hello World';
+require_once(__DIR__ . '/../../config.php');
+require_login();
+$url = new moodle_url('/admin/tool/hitteshahuja/index.php');
+$PAGE->set_context(context_system::instance());
+$PAGE->set_url($url);
+$PAGE->set_pagelayout('report');
+$PAGE->set_title('Hello to the todo list');
+$PAGE->set_heading(get_string('pluginname', 'tool_hitteshahuja'));
+echo html_writer::span(get_string('helloworld', 'tool_hitteshahuja'));

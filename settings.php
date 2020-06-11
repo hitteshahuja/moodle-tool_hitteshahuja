@@ -21,5 +21,9 @@
  */
 
 defined('MOODLE_INTERNAL') || die();
-$string['pluginname'] = 'My first Moodle plugin';
-$string['helloworld'] = 'Hello World';
+
+if ($hassiteconfig) {
+    $ADMIN->add('unsupported', new admin_externalpage('toolhitteshahuja',
+        get_string('pluginname', 'tool_hitteshahuja'),
+        $CFG->wwwroot . '/' . $CFG->admin . '/tool/hitteshahuja/index.php', 'moodle/site:config', true));
+}

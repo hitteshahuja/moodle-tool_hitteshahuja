@@ -20,9 +20,8 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();
-$plugin->version = 20200604;
-$plugin->version = 2014052000;
+$plugin->version = 2020061100;
 $plugin->component = 'tool_hitteshahuja';
 $plugin->maturity = MATURITY_STABLE;
-$plugin->release = 'v1.0';
+$plugin->release = '1.1';
 $plugin->dependencies = [];
