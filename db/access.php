@@ -21,8 +21,26 @@
  */
 
 defined('MOODLE_INTERNAL') || die();
-$string['pluginname'] = 'My first Moodle plugin';
-$string['helloworld'] = 'Hello World {$a}';
-// Capabilities.
-$string['hitteshahuja:view'] = 'View tool hitteshahuja';
-$string['hitteshahuja:edit'] = 'Edit tool hitteshahuja';
+$capabilities = array(
+
+    'tool/hitteshahuja:view' => array(
+        'riskbitmask' => RISK_XSS,
+
+        'captype' => 'read',
+        'contextlevel' => CONTEXT_COURSE,
+        'archetypes' => array(
+            'editingteacher' => CAP_ALLOW,
+            'manager' => CAP_ALLOW
+        )
+    ),
+    'tool/hitteshahuja:edit' => array(
+        'riskbitmask' => RISK_XSS,
+
+        'captype' => 'write',
+        'contextlevel' => CONTEXT_COURSE,
+        'archetypes' => array(
+            'editingteacher' => CAP_ALLOW,
+            'manager' => CAP_ALLOW
+        )
+    )
+);

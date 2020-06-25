@@ -22,8 +22,12 @@
 
 require_once(__DIR__ . '/../../../config.php');
 require_once($CFG->libdir . '/adminlib.php');
-admin_externalpage_setup('toolhitteshahuja');
+//admin_externalpage_setup('toolhitteshahuja');
 $id = optional_param('id', 1, PARAM_INT);
+$course = $DB->get_record('course', ['id' => $id]);
+$context = context_course::instance($course->id);
+require_login($course);
+require_capability('tool/hitteshahuja:view', $context);
 $url = new moodle_url('/admin/tool/hitteshahuja/index.php', ['id' => $id]);
 $PAGE->set_context(context_system::instance());
 $PAGE->set_url($url);

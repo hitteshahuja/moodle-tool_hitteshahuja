@@ -23,10 +23,12 @@
 defined('MOODLE_INTERNAL') || die();
 
 // Navigation on this page is only shown when you are in the plugin context.
-function tool_hitteshahuja_extend_navigation_course($navigation, $course)
+function tool_hitteshahuja_extend_navigation_course($navigation, $course, $context)
 {
-    $navigation->add(get_string('pluginname', 'tool_hitteshahuja'),
-        new moodle_url('/admin/tool/hitteshahuja/index.php', ['id' => $course->id]), navigation_node::TYPE_SETTING
-        , null, null, new pix_icon('icon', '', 'tool_hitteshahuja'));
+    if (has_capability('tool/hitteshahuja:view', $context)) {
+        $navigation->add(get_string('pluginname', 'tool_hitteshahuja'),
+            new moodle_url('/admin/tool/hitteshahuja/index.php', ['id' => $course->id]), navigation_node::TYPE_SETTING
+            , null, null, new pix_icon('icon', '', 'tool_hitteshahuja'));
+    }
 }
 
