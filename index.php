@@ -22,7 +22,9 @@
 
 require_once(__DIR__ . '/../../../config.php');
 require_once($CFG->libdir . '/adminlib.php');
-//admin_externalpage_setup('toolhitteshahuja');
+
+use tool_hitteshahuja\output as output;
+
 $id = optional_param('id', 1, PARAM_INT);
 $course = $DB->get_record('course', ['id' => $id]);
 $context = context_course::instance($course->id);
@@ -37,7 +39,7 @@ $PAGE->set_heading(get_string('pluginname', 'tool_hitteshahuja'));
 $output = $PAGE->get_renderer('tool_hitteshahuja');
 echo $output->header();
 echo $output->heading(get_string('pluginname', 'tool_hitteshahuja'));
-$renderable = new \tool_hitteshahuja\output\index_page('Hello World');
+$renderable = new output\index_page('Hello World');
 echo $output->render($renderable);
 echo get_string("helloworld", "tool_hitteshahuja", $id);
 echo $output->footer();

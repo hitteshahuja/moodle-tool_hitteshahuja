@@ -26,7 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 use renderable;
 use renderer_base;
 use templatable;
-
+use stdClass;
 class index_page implements renderable, templatable {
     private $helloworld;
 
@@ -39,7 +39,7 @@ class index_page implements renderable, templatable {
     }
 
     public function export_for_template(renderer_base $output) {
-        $data = new \stdClass();
+        $data = new stdClass();
         $data->helloworld = $this->helloworld;
         return $data;
     }
