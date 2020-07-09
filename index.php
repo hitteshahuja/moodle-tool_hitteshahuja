@@ -39,7 +39,12 @@ $PAGE->set_heading(get_string('pluginname', 'tool_hitteshahuja'));
 $output = $PAGE->get_renderer('tool_hitteshahuja');
 echo $output->header();
 echo $output->heading(get_string('pluginname', 'tool_hitteshahuja'));
-$renderable = new output\index_page('Hello World');
-echo $output->render($renderable);
-echo get_string("helloworld", "tool_hitteshahuja", $id);
+
+$table = new \tool_hitteshahuja\output\display_table($id);
+$table->baseurl = $url;
+echo $table->out(50, true);
+$editurl = new moodle_url('/admin/tool/hitteshahuja/edit.php', ['courseid' => $id]);
+if (has_capability('tool/hitteshahuja:edit', $context)) {
+    echo html_writer::link($editurl, get_string('add', 'tool_hitteshahuja'));
+}
 echo $output->footer();
