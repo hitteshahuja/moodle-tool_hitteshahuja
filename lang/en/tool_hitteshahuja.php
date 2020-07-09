@@ -16,7 +16,7 @@
 
 /**
  * @package   tool_hitteshahuja
- * @copyright 2020, hitteshahuja
+ * @copyright 2020, hitteshahuja@gmail.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -26,3 +26,13 @@ $string['helloworld'] = 'Hello World {$a}';
 // Capabilities.
 $string['hitteshahuja:view'] = 'View tool hitteshahuja';
 $string['hitteshahuja:edit'] = 'Edit tool hitteshahuja';
+$string['edit'] = 'Edit';
+$string['add'] = 'Add';
+$string['completed'] = 'Completed';
+$string['namealreadyinuse'] = 'Already in use';
+$string['courseid'] = 'Course ID';
+$string['name'] = 'Course Name';
+$string['priority'] = 'Priority';
+$string['timecreated'] = 'Time Created';
+$string['timemodified'] = 'Time Modified';
+$string['actions'] = 'Actions';
