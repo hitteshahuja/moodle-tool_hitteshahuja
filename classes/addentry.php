@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -22,6 +21,9 @@
  */
 
 namespace tool_hitteshahuja;
+use coding_exception;
+use dml_exception;
+
 defined('MOODLE_INTERNAL') || die();
 require_once("$CFG->libdir/formslib.php");
 
@@ -53,8 +55,8 @@ class addentry extends \moodleform {
      * @param array $data
      * @param array $files
      * @return array
-     * @throws \coding_exception
-     * @throws \dml_exception
+     * @throws coding_exception
+     * @throws dml_exception
      */
     public function validation($data, $files) {
         global $DB;
