@@ -54,8 +54,8 @@ class display_table extends table_sql {
         // Define columns in the table.
         // Define headers and columns.
         $cols = array(
-            'courseid' => get_string('courseid', 'tool_hitteshahuja'),
             'name' => get_string('name', 'tool_hitteshahuja'),
+            'courseid' => get_string('courseid', 'tool_hitteshahuja'),
             'completed' => get_string('completed', 'tool_hitteshahuja'),
             'priority' => get_string('priority', 'tool_hitteshahuja'),
             'timecreated' => get_string('timecreated', 'tool_hitteshahuja'),
@@ -122,7 +122,7 @@ class display_table extends table_sql {
         $o = '';
         $actions = [];
         // Edit action.
-        $actionurl = new moodle_url('/admin/tool/hitteshahuja/edit.php', ['id' => $row->id, 'courseid' => $row->courseid]);
+        $actionurl = new \moodle_url('/admin/tool/hitteshahuja/edit.php', ['id' => $row->id, 'courseid' => $row->courseid]);
         $o = html_writer::link($actionurl, get_string('edit', 'tool_hitteshahuja'));
         return $o;
 
