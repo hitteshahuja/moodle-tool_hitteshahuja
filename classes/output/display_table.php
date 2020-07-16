@@ -120,10 +120,12 @@ class display_table extends table_sql {
     public function col_actions(stdClass $row) {
         // Prepare actions.
         $o = '';
-        $actions = [];
         // Edit action.
-        $actionurl = new \moodle_url('/admin/tool/hitteshahuja/edit.php', ['id' => $row->id, 'courseid' => $row->courseid]);
-        $o = html_writer::link($actionurl, get_string('edit', 'tool_hitteshahuja'));
+        $editurl = new \moodle_url('/admin/tool/hitteshahuja/edit.php', ['id' => $row->id, 'courseid' => $row->courseid]);
+        $o = html_writer::link($editurl, get_string('edit', 'tool_hitteshahuja'));
+        $deleteurl = new \moodle_url('/admin/tool/hitteshahuja/edit.php', ['delete' => $row->id]);
+        $o .= " ";
+        $o .= html_writer::link($deleteurl, get_string('delete', 'tool_hitteshahuja'));
         return $o;
 
     }

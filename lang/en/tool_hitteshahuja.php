@@ -28,6 +28,7 @@ $string['hitteshahuja:view'] = 'View tool hitteshahuja';
 $string['hitteshahuja:edit'] = 'Edit tool hitteshahuja';
 $string['edit'] = 'Edit';
 $string['add'] = 'Add';
+$string['delete'] = 'Delete';
 $string['completed'] = 'Completed';
 $string['namealreadyinuse'] = 'Already in use';
 $string['courseid'] = 'Course ID';
