@@ -123,7 +123,7 @@ class display_table extends table_sql {
         // Edit action.
         $editurl = new \moodle_url('/admin/tool/hitteshahuja/edit.php', ['id' => $row->id, 'courseid' => $row->courseid]);
         $o = html_writer::link($editurl, get_string('edit', 'tool_hitteshahuja'));
-        $deleteurl = new \moodle_url('/admin/tool/hitteshahuja/edit.php', ['delete' => $row->id]);
+        $deleteurl = new \moodle_url('/admin/tool/hitteshahuja/edit.php', ['delete' => $row->id, 'sesskey' => sesskey()]);
         $o .= " ";
         $o .= html_writer::link($deleteurl, get_string('delete', 'tool_hitteshahuja'));
         return $o;
