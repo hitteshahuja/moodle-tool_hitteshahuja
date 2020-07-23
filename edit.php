@@ -61,8 +61,8 @@ $output = $PAGE->get_renderer('tool_hitteshahuja');
 
 $editform = new \tool_hitteshahuja\addentry(null, ['data' => $tooldata, 'courseid' => $courseid]);
 // Form processing and displaying is done here.
+$indexurl = new moodle_url('/admin/tool/hitteshahuja/index.php', ['id' => $courseid]);
 if ($editform->is_cancelled()) {
-    $indexurl = new moodle_url('/admin/tool/hitteshahuja/index.php', ['id' => $courseid]);
     // Handle form cancel operation, if cancel button is present on form.
     redirect($indexurl);
 } else if ($fromform = $editform->get_data()) {
