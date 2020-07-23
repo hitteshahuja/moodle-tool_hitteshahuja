@@ -16,7 +16,7 @@
   Scenario: Add a new tool entry
     And I log in as "teacher1"
     And I am on "NEW Fire Safety" course homepage
-    And I navigate to "My first Moodle plugin" node in "Course administration"
+    And I navigate to "My first Moodle plugin" in current page administration
     And I click on "Add" "link"
     And I set the field "Name" to "BehatCourseEntry"
     #And I click on "Completed" "checkbox"
