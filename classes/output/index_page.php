@@ -27,20 +27,37 @@ use renderable;
 use renderer_base;
 use templatable;
 use stdClass;
+
 class index_page implements renderable, templatable {
-    private $helloworld;
+    private $courseid;
+    private $url;
 
     /**
      * index_page constructor.
-     * @param $helloworld
+     * @param $courseid
+     * @param $url
      */
-    public function __construct($helloworld) {
-        $this->helloworld = $helloworld;
+    public function __construct($courseid, $url) {
+        $this->courseid = $courseid;
+        $this->url = $url;
     }
 
+    /**
+     * @param renderer_base $output
+     * @return stdClass
+     * @throws \coding_exception
+     */
     public function export_for_template(renderer_base $output) {
         $data = new stdClass();
-        $data->helloworld = $this->helloworld;
+        $o = '';
+        ob_start();
+        $table = new \tool_hitteshahuja\output\display_table($this->courseid);
+        $table->baseurl = $this->url;
+        $tableout = $table->out(50, true);
+        $o = ob_get_contents();
+        ob_end_clean();
+        $data->table = $o;
         return $data;
+
     }
 }

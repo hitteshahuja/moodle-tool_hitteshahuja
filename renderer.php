@@ -31,6 +31,6 @@ class tool_hitteshahuja_renderer extends plugin_renderer_base {
      */
     public function render_index_page(renderable $indexpage) {
         $data = $indexpage->export_for_template($this);
-        return $this->render_from_template('tool_hitteshahuja/index_page', $indexpage->export_for_template($this));
+        return $this->render_from_template('tool_hitteshahuja/index_page', $data);
     }
 }
