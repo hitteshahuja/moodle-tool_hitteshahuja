@@ -25,25 +25,28 @@ global $DB;
 
 $id = optional_param('id', '', PARAM_INT); // Tool id.
 $courseid = optional_param('courseid', '', PARAM_INT); // Course id.
-
+$buttontext = 'Add';
 if ($id) {
+    // Button should say save.
+    $buttontext = 'Save';
+    // TODO . Class method.
     $tooldata = $DB->get_record('tool_hitteshahuja', ['id' => $id]);
     $course = $DB->get_record('course', ['id' => $tooldata->courseid]);
 } else {
     $tooldata = new stdClass();
     $tooldata->id = null;
 }
+$toolhitteshahuja = new tool_hitteshahuja\hitteshahuja($courseid);
 if (isset($courseid) && !empty($courseid)) {
     $course = $DB->get_record('course', ['id' => $courseid]);
 }
 if ($deleteid = optional_param('delete', null, PARAM_INT)) {
     if (confirm_sesskey()) {
-        $record = $DB->get_record('tool_hitteshahuja', ['id' => $deleteid], '*', MUST_EXIST);
-        require_login(get_course($record->courseid));
-        require_capability('tool/hitteshahuja:edit', context_course::instance($record->courseid));
-        $DB->delete_records('tool_hitteshahuja', ['id' => $deleteid]);
-        $indexurl = new moodle_url('/admin/tool/hitteshahuja/index.php', ['id' => $record->courseid]);
-        redirect($indexurl);
+        if ($toolhitteshahuja::delete_entry($deleteid)) {
+            $indexurl = new moodle_url('/admin/tool/hitteshahuja/index.php', ['id' => $record->courseid]);
+            redirect($indexurl);
+        }
+
     }
 }
 $context = context_course::instance($courseid);
@@ -69,19 +72,21 @@ if ($editform->is_cancelled()) {
     // Handle form processing.
     if ($fromform->id) {
         // Update.
-        $DB->update_record('tool_hitteshahuja', $fromform);
+        $toolhitteshahuja::update_entry($fromform);
         redirect($indexurl);
     } else {
+        // TODO Class Method.
         $newdata = new stdClass();
         $newdata->courseid = $fromform->courseid;
         $newdata->name = $fromform->name;
         $newdata->completed = $fromform->completed;
         $newdata->timemodified = time();
         $newdata->timecreated = time();
-        $DB->insert_record('tool_hitteshahuja', $newdata);
-        $indexurl = new moodle_url('/admin/tool/hitteshahuja/index.php', ['id' => $newdata->courseid]);
-        // Data was saved. return to index page.
-        redirect($indexurl);
+        if ($toolhitteshahuja->add_entry($newdata)) {
+            $indexurl = new moodle_url('/admin/tool/hitteshahuja/index.php', ['id' => $courseid]);
+            // Data was saved. return to index page.
+            redirect($indexurl);
+        }
     }
 
 } else {
