@@ -122,11 +122,12 @@ class display_table extends table_sql {
         $o = '';
         // Edit action.
         $editurl = new \moodle_url('/admin/tool/hitteshahuja/edit.php', ['id' => $row->id, 'courseid' => $row->courseid]);
-        $o = html_writer::link($editurl, get_string('edit', 'tool_hitteshahuja'));
+        $o = html_writer::link($editurl, get_string('edit', 'tool_hitteshahuja'),
+            ['title' => get_string('edittitle', 'tool_hitteshahuja', format_string($row->name))]);
         $deleteurl = new \moodle_url('/admin/tool/hitteshahuja/edit.php', ['delete' => $row->id, 'sesskey' => sesskey()]);
         $o .= " ";
         $o .= html_writer::link($deleteurl, get_string('delete', 'tool_hitteshahuja'));
-        return format_string($o);
+        return $o;
 
     }
 

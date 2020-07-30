@@ -26,6 +26,7 @@ $string['helloworld'] = 'Hello World {$a}';
 // Capabilities.
 $string['hitteshahuja:view'] = 'View tool hitteshahuja';
 $string['hitteshahuja:edit'] = 'Edit tool hitteshahuja';
+$string['edittitle'] = 'Edit {$a}';
 $string['edit'] = 'Edit';
 $string['add'] = 'Add';
 $string['delete'] = 'Delete';
