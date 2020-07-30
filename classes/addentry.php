@@ -38,7 +38,7 @@ class addentry extends \moodleform {
         $data = $this->_customdata['data'];
         $courseid = $this->_customdata['courseid'];
         $mform->addElement('text', 'name', get_string('name'));
-        $mform->setType('name', PARAM_ALPHANUMEXT);
+        $mform->setType('name', PARAM_NOTAGS);
         $mform->addElement('advcheckbox', 'completed', get_string('completed', 'tool_hitteshahuja'),
             'Completed', array('group' => 1), array(0, 1));
         $mform->addElement('hidden', 'id');
