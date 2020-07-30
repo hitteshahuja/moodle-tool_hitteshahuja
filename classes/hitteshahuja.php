@@ -31,20 +31,46 @@ class hitteshahuja {
     /**
      * @var null
      */
-    public $id;
+    public $id = null;
     /**
      * @var
      */
     public $courseid;
+    public $completed;
+    private $timecreated;
+    private $timemodified;
+    public $name;
+
 
     /**
      * hitteshahuja constructor.
      * @param $courseid
      * @param null $id
      */
-    public function __construct($courseid, $id = null) {
+    public function __construct($courseid, int $id = null) {
         $this->id = $id;
         $this->courseid = $courseid;
+        $this->timecreated = $this->timemodified = time();
+    }
+
+    public function create_tool_instance() {
+        global $DB;
+        if (isset($this->id) && $this->id !== 0) {
+            $tooldata = $DB->get_record('tool_hitteshahuja', ['id' => $this->id]);
+            $toolinstance = new hitteshahuja($tooldata->courseid, $tooldata->id);
+            $toolinstance->completed = $tooldata->completed;
+            $toolinstance->timecreated = $tooldata->timecreated;
+            $toolinstance->timemodified = $tooldata->timemodified;
+            $toolinstance->name = $tooldata->name;
+        } else {
+            $toolinstance = new hitteshahuja($this->courseid, null);
+        }
+        return $toolinstance;
+    }
+
+    public function get_course_for_instance($courseid) {
+        global $DB;
+        return $DB->get_record('course', ['id' => $courseid]);
     }
 
     /**
@@ -77,6 +103,7 @@ class hitteshahuja {
      */
     public function add_entry($data) {
         global $DB;
+        $data->timecreated = $data->timemodified = time();
         return $DB->insert_record('tool_hitteshahuja', $data);
     }
 
