@@ -94,7 +94,7 @@ class display_table extends table_sql {
         } else {
             $o = 'No';
         }
-        return $o;
+        return format_string($o);
     }
 
     /**
@@ -108,7 +108,7 @@ class display_table extends table_sql {
         } else {
             $o = 'No';
         }
-        return $o;
+        return format_string($o);
     }
 
     /**
@@ -126,7 +126,7 @@ class display_table extends table_sql {
         $deleteurl = new \moodle_url('/admin/tool/hitteshahuja/edit.php', ['delete' => $row->id, 'sesskey' => sesskey()]);
         $o .= " ";
         $o .= html_writer::link($deleteurl, get_string('delete', 'tool_hitteshahuja'));
-        return $o;
+        return format_string($o);
 
     }
 
@@ -139,7 +139,7 @@ class display_table extends table_sql {
         if ($row->timecreated) {
             $o = userdate($row->timecreated);
         }
-        return $o;
+        return format_string($o);
     }
 
     /**
@@ -151,7 +151,7 @@ class display_table extends table_sql {
         if ($row->timemodified) {
             $o = userdate($row->timemodified);
         }
-        return $o;
+        return format_string($o);
     }
 
     /**
