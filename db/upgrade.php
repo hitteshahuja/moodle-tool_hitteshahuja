@@ -22,6 +22,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+/** Upgrade script.
+ * @param $oldversion
+ * @throws ddl_exception
+ * @throws downgrade_exception
+ * @throws upgrade_exception
+ */
 function xmldb_tool_hitteshahuja_upgrade($oldversion) {
     global $DB;
     $dbman = $DB->get_manager();

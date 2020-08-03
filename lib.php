@@ -23,6 +23,13 @@
 defined('MOODLE_INTERNAL') || die();
 
 // Navigation on this page is only shown when you are in the plugin context.
+/**
+ * @param $navigation
+ * @param $course
+ * @param $context
+ * @throws coding_exception
+ * @throws moodle_exception
+ */
 function tool_hitteshahuja_extend_navigation_course($navigation, $course, $context) {
     if (has_capability('tool/hitteshahuja:view', $context)) {
         $navigation->add(get_string('pluginname', 'tool_hitteshahuja'),

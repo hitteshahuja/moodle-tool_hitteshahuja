@@ -27,6 +27,10 @@ use dml_exception;
 defined('MOODLE_INTERNAL') || die();
 require_once("$CFG->libdir/formslib.php");
 
+/**
+ * Class addentry
+ * @package tool_hitteshahuja
+ */
 class addentry extends \moodleform {
 
     /**

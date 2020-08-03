@@ -26,6 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 /**
  * Class hitteshahuja
  * @package tool_hitteshahuja
+ * @copyright 2020, hitteshahuja
  */
 class hitteshahuja {
     /**
@@ -36,9 +37,21 @@ class hitteshahuja {
      * @var
      */
     public $courseid;
+    /**
+     * @var
+     */
     public $completed;
+    /**
+     * @var int
+     */
     private $timecreated;
+    /**
+     * @var int
+     */
     private $timemodified;
+    /**
+     * @var
+     */
     public $name;
 
 
@@ -53,6 +66,10 @@ class hitteshahuja {
         $this->timecreated = $this->timemodified = time();
     }
 
+    /**
+     * @return hitteshahuja
+     * @throws \dml_exception
+     */
     public function create_tool_instance() {
         global $DB;
         if (isset($this->id) && $this->id !== 0) {
@@ -68,6 +85,11 @@ class hitteshahuja {
         return $toolinstance;
     }
 
+    /**
+     * @param $courseid
+     * @return bool|false|mixed|\stdClass
+     * @throws \dml_exception
+     */
     public function get_course_for_instance($courseid) {
         global $DB;
         return $DB->get_record('course', ['id' => $courseid]);
