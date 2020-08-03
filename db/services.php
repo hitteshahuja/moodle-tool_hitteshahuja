@@ -15,13 +15,21 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package   plugintype_pluginname
+ * @package   tool_hitteshahuja
  * @copyright 2020, hitteshahuja
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
 defined('MOODLE_INTERNAL') || die();
-$plugin->version = 2020061105;
-$plugin->component = 'tool_hitteshahuja';
-$plugin->maturity = MATURITY_STABLE;
-$plugin->release = '1.9';
-$plugin->dependencies = [];
+
+$functions = array(
+    'tool_hitteshahuja_delete_entry' => array(
+        'classname' => tool_hitteshahuja_external::class,
+        'methodname' => 'delete_entry',
+        'description' => 'Simulate deleting an entry',
+        'type' => 'write',
+        'capabilities' => 'tool/hitteshahuja:edit',
+        'ajax' => true,
+        'services' => array(MOODLE_OFFICIAL_MOBILE_SERVICE)
+    )
+);
