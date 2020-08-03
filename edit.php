@@ -22,6 +22,13 @@
 require_once(__DIR__ . '/../../../config.php');
 require_once($CFG->libdir . '/adminlib.php');
 global $DB;
+
+$id = optional_param('id', null, PARAM_INT); // Tool id.
+$courseid = optional_param('courseid', null, PARAM_INT); // Course id.
+$toolhitteshahuja = new tool_hitteshahuja\hitteshahuja($courseid, $id);
+$instance = $toolhitteshahuja->create_tool_instance();
+$course = $instance->get_course_for_instance($instance->courseid);
+$indexurl = new moodle_url('/admin/tool/hitteshahuja/index.php', ['id' => $course->id]);
 if ($deleteid = optional_param('delete', null, PARAM_INT)) {
     if (confirm_sesskey()) {
         if (\tool_hitteshahuja\hitteshahuja::delete_entry($deleteid)) {
@@ -29,13 +36,6 @@ if ($deleteid = optional_param('delete', null, PARAM_INT)) {
         }
     }
 }
-$id = optional_param('id', null, PARAM_INT); // Tool id.
-$courseid = optional_param('courseid', null, PARAM_INT); // Course id.
-$toolhitteshahuja = new tool_hitteshahuja\hitteshahuja($courseid, $id);
-$instance = $toolhitteshahuja->create_tool_instance();
-$course = $instance->get_course_for_instance($instance->courseid);
-$indexurl = new moodle_url('/admin/tool/hitteshahuja/index.php', ['id' => $course->id]);
-
 $context = context_course::instance($courseid);
 require_login($course);
 require_capability('tool/hitteshahuja:edit', $context);
