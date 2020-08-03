@@ -28,8 +28,18 @@ use renderer_base;
 use templatable;
 use stdClass;
 
+/**
+ * Class index_page
+ * @package tool_hitteshahuja\output
+ */
 class index_page implements renderable, templatable {
+    /**
+     * @var
+     */
     private $courseid;
+    /**
+     * @var
+     */
     private $url;
 
     /**
@@ -43,6 +53,7 @@ class index_page implements renderable, templatable {
     }
 
     /**
+     * Display table
      * @param renderer_base $output
      * @return stdClass
      * @throws \coding_exception
