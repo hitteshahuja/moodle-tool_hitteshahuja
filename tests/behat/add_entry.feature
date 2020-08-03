@@ -1,18 +1,20 @@
 @tool @tool_hitteshahuja
-  Feature: Add new tool entry
-    In order to see a list of entries for a given course
-    As a user who has edit capabilities
-    I need to add a new tool entry
-   Background:
-     Given the following "users" exist:
-       | username | firstname | lastname | email |
-       | teacher1 | Teacher | 1 | teacher1@example.com |
-     And the following "courses" exist:
-       | fullname | shortname | category |
-       | NEW Fire Safety | Fire Safety        | 0        |
-     And the following "course enrolments" exist:
-       | user | course | role |
-       | teacher1 | Fire Safety | editingteacher |
+Feature: Add new tool entry
+  In order to see a list of entries for a given course
+  As a user who has edit capabilities
+  I need to add a new tool entry
+
+  Background:
+    Given the following "users" exist:
+      | username | firstname | lastname | email                |
+      | teacher1 | Teacher   | 1        | teacher1@example.com |
+    And the following "courses" exist:
+      | fullname        | shortname   | category |
+      | NEW Fire Safety | Fire Safety | 0        |
+    And the following "course enrolments" exist:
+      | user     | course      | role           |
+      | teacher1 | Fire Safety | editingteacher |
+
   Scenario: Add a new tool entry
     And I log in as "teacher1"
     And I am on "NEW Fire Safety" course homepage

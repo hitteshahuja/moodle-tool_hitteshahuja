@@ -14,6 +14,7 @@ Feature: Add new tool entry
     And the following "course enrolments" exist:
       | user     | course      | role           |
       | teacher1 | Fire Safety | editingteacher |
+
   Scenario: Edit an existing entry
     When I log in as "teacher1"
     And I am on "NEW Fire Safety" course homepage
