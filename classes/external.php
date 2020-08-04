@@ -33,55 +33,74 @@ class tool_hitteshahuja_external extends \external_api {
     /**
      * Delete entry
      */
-    public static function delete_entry($id) : external_function_parameters {
+    public static function delete_entry($id) {
         $params = self::validate_parameters(self::delete_entry_parameters(),
             array(
-                'id' => $id
+                'entryid' => $id
             ));
-        $entryid = $params['id'];
-        return hitteshahuja::delete_entry($entryid);
+        $entryid = $params['entryid'];
+        return ['deleted' => \tool_hitteshahuja\hitteshahuja::delete_entry($entryid)];
     }
 
     /**
+     * Delete an entry parameters
      * @return \external_function_parameters
      */
-    public static function delete_entry_parameters() {
+    public static function delete_entry_parameters(): external_function_parameters {
         return new \external_function_parameters(
-            array('entryid' => new \external_value(PARAM_INT, 'Entry ID'))
+            array('entryid' => new \external_value(PARAM_INT, 'Entry ID', VALUE_REQUIRED))
         );
 
     }
 
     /**
-     * @return \external_function_parameters
+     * Return value when deleting an entry
+     * @return \external_single_structure
      */
     public static function delete_entry_returns() {
-        return new \external_function_parameters(
+        return new \external_single_structure(
             array(
                 'deleted' => new \external_value(PARAM_BOOL, 'Deleted ?'),
             )
         );
     }
 
+    /**
+     * @param $courseid
+     * @return array
+     * @throws coding_exception
+     */
     public static function return_template_object($courseid) {
         global $PAGE;
+        $params = self::validate_parameters(self::return_template_object_parameters(),
+            array(
+                'courseid' => $courseid
+            ));
+        $id = $params['courseid'];
         $output = $PAGE->get_renderer('tool_hitteshahuja');
-        $outputpage = new index_page($courseid);
-        return ['content' => $outputpage->export_for_template($output)];
-
+        $url = new moodle_url('/admin/tool/hitteshahuja/index.php', ['id' => $id]);
+        $outputpage = new index_page($courseid, $url);
+        return ['content' => json_encode($outputpage->export_for_template($output))];
     }
 
+    /**
+     * @return external_function_parameters
+     */
     public static function return_template_object_parameters() {
         return new \external_function_parameters(
             array('courseid' => new \external_value(PARAM_INT, 'Course ID'))
         );
     }
 
+    /**
+     * @return external_single_structure
+     */
     public static function return_template_object_returns() {
         return new external_single_structure(
             array(
-                'content' => new external_value(PARAM_RAW, 'JSON-encoded data for template', VALUE_OPTIONAL),
+                'content' => new external_value(PARAM_RAW, 'JSON-encoded data for template', VALUE_OPTIONAL)
             )
         );
+
     }
 }
