@@ -34,7 +34,7 @@ class hitteshahuja {
      */
     public $id = null;
     /**
-     * @var
+     * @var $courseid
      */
     public $courseid;
     /**
@@ -67,6 +67,7 @@ class hitteshahuja {
     }
 
     /**
+     * Create an instance of the tool
      * @return hitteshahuja
      * @throws \dml_exception
      */
@@ -86,6 +87,7 @@ class hitteshahuja {
     }
 
     /**
+     * Get course for instance.
      * @param $courseid
      * @return bool|false|mixed|\stdClass
      * @throws \dml_exception

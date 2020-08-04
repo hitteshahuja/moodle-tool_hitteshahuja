@@ -31,5 +31,23 @@ $functions = array(
         'capabilities' => 'tool/hitteshahuja:edit',
         'ajax' => true,
         'services' => array(MOODLE_OFFICIAL_MOBILE_SERVICE)
+    ),
+    'tool_hitteshahuja_show_template' => array(
+        'classname' => tool_hitteshahuja_external::class,
+        'methodname' => 'return_template_object',
+        'description' => 'Returns Templateable Object',
+        'type' => 'read',
+        'capabilities' => 'tool/hitteshahuja:view',
+        'ajax' => true,
+        'services' => array(MOODLE_OFFICIAL_MOBILE_SERVICE)
+    ),
+);
+
+// We define the services to install as pre-build services. A pre-build service is not editable by administrator.
+$services = array(
+    'tool_hitteshahuja_services' => array(
+        'functions' => array ('tool_hitteshahuja_delete_entry', 'tool_hitteshahuja_show_template'),
+        'restrictedusers' => 0,
+        'enabled' => 1,
     )
 );

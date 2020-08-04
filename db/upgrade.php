@@ -56,5 +56,5 @@ function xmldb_tool_hitteshahuja_upgrade($oldversion) {
         // Hitteshahuja savepoint reached.
         upgrade_plugin_savepoint(true, 2020061103, 'tool', 'hitteshahuja');
     }
-
+    return true;
 }
