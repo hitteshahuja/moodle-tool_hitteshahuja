@@ -44,6 +44,7 @@ class tool_hitteshahuja_testcase extends advanced_testcase {
     }
 
     /**
+     * Test delete entry method
      * @throws dml_exception
      */
     public function test_delete() {
