@@ -38,3 +38,5 @@ $string['priority'] = 'Priority';
 $string['timecreated'] = 'Time Created';
 $string['timemodified'] = 'Time Modified';
 $string['actions'] = 'Actions';
+$string['confirmdeletetitle'] = 'Delete Entry';
+$string['confirmdeletequestion'] = 'Are you sure you want to delete this entry?';
