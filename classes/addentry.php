@@ -21,6 +21,7 @@
  */
 
 namespace tool_hitteshahuja;
+
 use coding_exception;
 use dml_exception;
 
@@ -37,9 +38,7 @@ class addentry extends \moodleform {
      * Form definition. Abstract method - always override!
      */
     protected function definition() {
-        global $CFG;
         $mform = $this->_form; // Don't forget the underscore!
-        $data = $this->_customdata['data'];
         $courseid = $this->_customdata['courseid'];
         $mform->addElement('text', 'name', get_string('name'));
         $mform->setType('name', PARAM_NOTAGS);
