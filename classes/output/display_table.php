@@ -114,8 +114,8 @@ class display_table extends table_sql {
     /**
      * @param stdClass $row
      * @return string
-     * @throws moodle_exception
-     * @throws coding_exception
+     * @throws \moodle_exception
+     * @throws \coding_exception
      */
     public function col_actions(stdClass $row) {
         // Prepare actions.
@@ -123,10 +123,12 @@ class display_table extends table_sql {
         // Edit action.
         $editurl = new \moodle_url('/admin/tool/hitteshahuja/edit.php', ['id' => $row->id, 'courseid' => $row->courseid]);
         $o = html_writer::link($editurl, get_string('edit', 'tool_hitteshahuja'),
-            ['title' => get_string('edittitle', 'tool_hitteshahuja', format_string($row->name))]);
+            ['data-id' => $row->id, 'data-courseid' => $row->courseid,
+                'title' => get_string('edittitle', 'tool_hitteshahuja', format_string($row->name))]);
         $deleteurl = new \moodle_url('/admin/tool/hitteshahuja/edit.php', ['delete' => $row->id, 'sesskey' => sesskey()]);
         $o .= " ";
-        $o .= html_writer::link($deleteurl, get_string('delete', 'tool_hitteshahuja'));
+        $o .= html_writer::link($deleteurl, get_string('delete', 'tool_hitteshahuja'),
+            ['class' => 'deletetool', 'data-id' => $row->id, 'data-courseid' => $row->courseid]);
         return $o;
 
     }
