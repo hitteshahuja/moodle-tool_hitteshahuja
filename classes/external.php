@@ -80,7 +80,6 @@ class tool_hitteshahuja_external extends \external_api {
      * @throws restricted_context_exception
      */
     public static function return_template_object($courseid) {
-        global $PAGE;
         $params = self::validate_parameters(self::return_template_object_parameters(),
             array(
                 'courseid' => $courseid
@@ -91,7 +90,10 @@ class tool_hitteshahuja_external extends \external_api {
         require_capability('tool/hitteshahuja:view', $context);
         $url = new moodle_url('/admin/tool/hitteshahuja/index.php', ['id' => $id]);
         $toolhitteshahuja = new tool_hitteshahuja\hitteshahuja($id);
-        return ['content' => $toolhitteshahuja->display_all_entries($url)];
+        global $PAGE;
+        $output = $PAGE->get_renderer('tool_hitteshahuja');
+        $renderable = new \tool_hitteshahuja\output\index_page($id, $url);
+        return $renderable->export_for_template($output);
     }
 
     /**
@@ -109,7 +111,8 @@ class tool_hitteshahuja_external extends \external_api {
     public static function return_template_object_returns() {
         return new external_single_structure(
             array(
-                'content' => new external_value(PARAM_RAW, 'JSON-encoded data for template', VALUE_OPTIONAL)
+                'button' => new external_value(PARAM_RAW, 'Add todo button'),
+                'table' => new external_value(PARAM_RAW, 'Table with TODO list')
             )
         );
 
