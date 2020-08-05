@@ -40,9 +40,5 @@ echo $OUTPUT->header();
 echo $OUTPUT->heading(get_string('pluginname', 'tool_hitteshahuja'));
 $toolhitteshahuja = new \tool_hitteshahuja\hitteshahuja($id);
 echo $toolhitteshahuja->display_all_entries($url);
-
 $editurl = new moodle_url('/admin/tool/hitteshahuja/edit.php', ['courseid' => $id]);
-if ($toolhitteshahuja->is_editable()) {
-    echo html_writer::link($editurl, get_string('add', 'tool_hitteshahuja'));
-}
 echo $OUTPUT->footer();
