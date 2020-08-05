@@ -41,5 +41,12 @@
 
 }}
 <!-- Display table here -->
+<div id="toolhitteshahujatable">{{{table}}}</div>
+<!-- Add buttton goes here -->
+{{{button}}}<!-- Add button text -->
 
-{{{table}}}
+{{#js}}
+    require(['tool_hitteshahuja/hitteshahuja'], function(ha) {
+    ha.init();
+    });
+{{/js}}
