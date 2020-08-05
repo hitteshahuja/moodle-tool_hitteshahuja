@@ -22,6 +22,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+/**
+ * Class tool_hitteshahuja_renderer
+ */
 class tool_hitteshahuja_renderer extends plugin_renderer_base {
     /**
      * Render a toolhitteshahuja_index_page.
