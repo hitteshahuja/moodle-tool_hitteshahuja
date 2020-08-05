@@ -23,12 +23,22 @@
 require_once(__DIR__ . '/../../../config.php');
 require_once($CFG->libdir . '/adminlib.php');
 global $DB;
+$savebuttontext = '';
+if ($id = optional_param('id', null, PARAM_INT)) {
+    $toolhitteshahuja = new tool_hitteshahuja\hitteshahuja($id);
+    $instance = $toolhitteshahuja->create_tool_instance();
+    $courseid = $instance->courseid;
+    // Button text to be save changes.
+    $savebuttontext = get_string('save');
+    $pageheading = get_string('edit', 'tool_hitteshahuja');
+} else {
+    $courseid = required_param('courseid', PARAM_INT); // Course id.
+    $instance = new stdClass();
+    $pageheading = get_string('add', 'tool_hitteshahuja');
 
-$id = optional_param('id', null, PARAM_INT); // Tool id.
-$courseid = optional_param('courseid', null, PARAM_INT); // Course id.
-$toolhitteshahuja = new tool_hitteshahuja\hitteshahuja($courseid, $id);
-$instance = $toolhitteshahuja->create_tool_instance();
-$course = $instance->get_course_for_instance($instance->courseid);
+
+}
+$course = get_course($courseid);
 $indexurl = new moodle_url('/admin/tool/hitteshahuja/index.php', ['id' => $course->id]);
 if ($deleteid = optional_param('delete', null, PARAM_INT)) {
     if (confirm_sesskey()) {
@@ -45,12 +55,12 @@ $PAGE->set_context(context_system::instance());
 $PAGE->set_url($url);
 $PAGE->set_pagelayout('admin');
 $PAGE->set_title(get_string('pluginname', 'tool_hitteshahuja'));
-$PAGE->set_heading(get_string('edit', 'tool_hitteshahuja'));
+$PAGE->set_heading($pageheading);
 $output = $PAGE->get_renderer('tool_hitteshahuja');
 // Show the form.
 // Load existing data.
 
-$editform = new \tool_hitteshahuja\addentry(null, ['data' => $instance, 'courseid' => $courseid]);
+$editform = new \tool_hitteshahuja\addentry(null, ['buttontext' => $savebuttontext, 'data' => $instance, 'courseid' => $courseid]);
 // Form processing and displaying is done here.
 $indexurl = new moodle_url('/admin/tool/hitteshahuja/index.php', ['id' => $courseid]);
 if ($editform->is_cancelled()) {
@@ -60,13 +70,13 @@ if ($editform->is_cancelled()) {
     // Handle form processing.
     if ($fromform->id) {
         // Update.
-        $toolhitteshahuja::update_entry($fromform);
+        tool_hitteshahuja\hitteshahuja::update_entry($fromform);
         redirect($indexurl);
     } else {
         $instance->courseid = $fromform->courseid;
         $instance->name = $fromform->name;
         $instance->completed = $fromform->completed;
-        if ($toolhitteshahuja->add_entry($instance)) {
+        if (tool_hitteshahuja\hitteshahuja::add_entry($instance)) {
             $indexurl = new moodle_url('/admin/tool/hitteshahuja/index.php', ['id' => $courseid]);
             // Data was saved. return to index page.
             redirect($indexurl);
