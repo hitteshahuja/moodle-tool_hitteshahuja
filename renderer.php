@@ -28,6 +28,7 @@ class tool_hitteshahuja_renderer extends plugin_renderer_base {
      *
      * @param renderable $indexpage The chooser.
      * @return string
+     * @throws moodle_exception
      */
     public function render_index_page(renderable $indexpage) {
         $data = $indexpage->export_for_template($this);

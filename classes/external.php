@@ -32,6 +32,13 @@ use tool_hitteshahuja\output\index_page;
 class tool_hitteshahuja_external extends \external_api {
     /**
      * Delete entry
+     * @param $id
+     * @return array
+     * @throws coding_exception
+     * @throws dml_exception
+     * @throws invalid_parameter_exception
+     * @throws moodle_exception
+     * @throws require_login_exception
      */
     public static function delete_entry($id) {
         $params = self::validate_parameters(self::delete_entry_parameters(),
@@ -68,7 +75,9 @@ class tool_hitteshahuja_external extends \external_api {
     /**
      * @param $courseid
      * @return array
-     * @throws coding_exception
+     * @throws moodle_exception
+     * @throws required_capability_exception
+     * @throws restricted_context_exception
      */
     public static function return_template_object($courseid) {
         global $PAGE;
