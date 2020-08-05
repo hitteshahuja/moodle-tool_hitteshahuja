@@ -15,6 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Edit page for tool_hitteshahuja
  * @package   tool_hitteshahuja
  * @copyright 2020, hitteshahuja
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
