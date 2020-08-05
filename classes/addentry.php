@@ -48,7 +48,12 @@ class addentry extends \moodleform {
         $mform->setType('id', PARAM_INT);
         $mform->addElement('hidden', 'courseid', $courseid);
         $mform->setType('courseid', PARAM_INT);
-        $this->add_action_buttons(true, get_string('add', 'tool_hitteshahuja'));
+        if ($this->_customdata['buttontext']) {
+            $this->add_action_buttons(true, $this->_customdata['buttontext']);
+        } else {
+            $this->add_action_buttons(true, get_string('add', 'tool_hitteshahuja'));
+
+        }
 
     }
 
