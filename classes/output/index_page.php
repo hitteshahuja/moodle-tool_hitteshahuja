@@ -27,6 +27,7 @@ use renderable;
 use renderer_base;
 use templatable;
 use stdClass;
+use tool_hitteshahuja\hitteshahuja;
 
 /**
  * Class index_page
@@ -61,13 +62,21 @@ class index_page implements renderable, templatable {
     public function export_for_template(renderer_base $output) {
         $data = new stdClass();
         $o = '';
+        $toolhitteshahuja = new hitteshahuja($this->courseid);
+        $editurl = new \moodle_url('/admin/tool/hitteshahuja/edit.php', ['courseid' => $this->courseid]);
+
         ob_start();
         $table = new \tool_hitteshahuja\output\display_table($this->courseid);
         $table->baseurl = $this->url;
         $tableout = $table->out(50, true);
-        $o = ob_get_contents();
+        if ($toolhitteshahuja->is_editable()) {
+            $data->button = \html_writer::link($editurl, get_string('add', 'tool_hitteshahuja'),
+            ['class' => 'btn btn-primary']);
+        }
+        $o .= ob_get_contents();
         ob_end_clean();
         $data->table = $o;
+
         return $data;
 
     }

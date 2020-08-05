@@ -77,10 +77,12 @@ class tool_hitteshahuja_external extends \external_api {
                 'courseid' => $courseid
             ));
         $id = $params['courseid'];
-        $output = $PAGE->get_renderer('tool_hitteshahuja');
+        $context = context_course::instance($courseid);
+        self::validate_context($context);
+        require_capability('tool/hitteshahuja:view', $context);
         $url = new moodle_url('/admin/tool/hitteshahuja/index.php', ['id' => $id]);
-        $outputpage = new index_page($courseid, $url);
-        return ['content' => json_encode($outputpage->export_for_template($output))];
+        $toolhitteshahuja = new tool_hitteshahuja\hitteshahuja($id);
+        return ['content' => $toolhitteshahuja->display_all_entries($url)];
     }
 
     /**
