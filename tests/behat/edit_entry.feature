@@ -1,5 +1,5 @@
 @tool @tool_hitteshahuja
-Feature: Add new tool entry
+Feature: Edit an existing tool entry
   In order to see a list of entries for a given course
   As a user who has edit capabilities
   I need to add a new tool entry
