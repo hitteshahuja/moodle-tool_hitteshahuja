@@ -31,22 +31,22 @@ if ($id = optional_param('id', null, PARAM_INT)) {
     // Button text to be save changes.
     $savebuttontext = get_string('save');
     $pageheading = get_string('edit', 'tool_hitteshahuja');
-} else {
-    $courseid = required_param('courseid', PARAM_INT); // Course id.
-    $instance = new stdClass();
-    $pageheading = get_string('add', 'tool_hitteshahuja');
-
-
-}
-$course = get_course($courseid);
-$indexurl = new moodle_url('/admin/tool/hitteshahuja/index.php', ['id' => $course->id]);
-if ($deleteid = optional_param('delete', null, PARAM_INT)) {
+} elseif ($deleteid = optional_param('delete', null, PARAM_INT)) {
+    $toolhitteshahuja = new tool_hitteshahuja\hitteshahuja($deleteid);
+    $instance = $toolhitteshahuja->create_tool_instance();
+    $courseid = $instance->courseid;
+    $indexurl = new moodle_url('/admin/tool/hitteshahuja/index.php', ['id' => $courseid]);
     if (confirm_sesskey()) {
         if (\tool_hitteshahuja\hitteshahuja::delete_entry($deleteid)) {
             redirect($indexurl);
         }
     }
+} else {
+    $courseid = required_param('courseid', PARAM_INT); // Course id.
+    $instance = new stdClass();
+    $pageheading = get_string('add', 'tool_hitteshahuja');
 }
+$course = get_course($courseid);
 $context = context_course::instance($courseid);
 require_login($course);
 require_capability('tool/hitteshahuja:edit', $context);

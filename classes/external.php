@@ -74,7 +74,9 @@ class tool_hitteshahuja_external extends \external_api {
 
     /**
      * @param $courseid
-     * @return array
+     * @return stdClass
+     * @throws coding_exception
+     * @throws invalid_parameter_exception
      * @throws moodle_exception
      * @throws required_capability_exception
      * @throws restricted_context_exception
@@ -89,7 +91,6 @@ class tool_hitteshahuja_external extends \external_api {
         self::validate_context($context);
         require_capability('tool/hitteshahuja:view', $context);
         $url = new moodle_url('/admin/tool/hitteshahuja/index.php', ['id' => $id]);
-        $toolhitteshahuja = new tool_hitteshahuja\hitteshahuja($id);
         global $PAGE;
         $output = $PAGE->get_renderer('tool_hitteshahuja');
         $renderable = new \tool_hitteshahuja\output\index_page($id, $url);

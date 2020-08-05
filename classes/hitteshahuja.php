@@ -58,12 +58,10 @@ class hitteshahuja {
 
     /**
      * hitteshahuja constructor.
-     * @param $courseid
      * @param int $id
      */
-    public function __construct($courseid, int $id = null) {
+    public function __construct(int $id) {
         $this->id = $id;
-        $this->courseid = $courseid;
         $this->timecreated = $this->timemodified = time();
     }
 
@@ -76,13 +74,15 @@ class hitteshahuja {
         global $DB;
         if (isset($this->id) && $this->id !== 0) {
             $tooldata = $DB->get_record('tool_hitteshahuja', ['id' => $this->id]);
-            $toolinstance = new hitteshahuja($tooldata->courseid, $tooldata->id);
+            $toolinstance = new \stdClass();
+            $toolinstance->id = $this->id;
             $toolinstance->completed = $tooldata->completed;
             $toolinstance->timecreated = $tooldata->timecreated;
             $toolinstance->timemodified = $tooldata->timemodified;
             $toolinstance->name = $tooldata->name;
+            $toolinstance->courseid = $tooldata->courseid;
         } else {
-            $toolinstance = new hitteshahuja($this->courseid, null);
+            $toolinstance = new \stdClass();
         }
         return $toolinstance;
     }
@@ -98,15 +98,6 @@ class hitteshahuja {
         return $DB->get_record('course', ['id' => $courseid]);
     }
 
-    /**
-     * Is the entry editable?
-     * @return bool
-     * @throws \coding_exception
-     */
-    public function is_editable(): bool {
-        $coursecontext = \context_course::instance($this->courseid);
-        return has_capability('tool/hitteshahuja:edit', $coursecontext);
-    }
 
     /**
      * Display all entries.
@@ -126,7 +117,7 @@ class hitteshahuja {
      * @return bool|int
      * @throws \dml_exception
      */
-    public function add_entry($data) {
+    public static function add_entry($data) {
         global $DB;
         $data->timecreated = $data->timemodified = time();
         return $DB->insert_record('tool_hitteshahuja', $data);

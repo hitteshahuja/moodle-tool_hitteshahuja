@@ -69,9 +69,10 @@ class index_page implements renderable, templatable {
         $table = new \tool_hitteshahuja\output\display_table($this->courseid);
         $table->baseurl = $this->url;
         $tableout = $table->out(50, true);
-        if ($toolhitteshahuja->is_editable()) {
+        $coursecontext = \context_course::instance($this->courseid);
+        if (has_capability('tool/hitteshahuja:edit', $coursecontext)) {
             $data->button = \html_writer::link($editurl, get_string('add', 'tool_hitteshahuja'),
-            ['class' => 'btn btn-primary']);
+                ['class' => 'btn btn-primary']);
         }
         $o .= ob_get_contents();
         ob_end_clean();

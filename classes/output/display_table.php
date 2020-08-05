@@ -121,7 +121,7 @@ class display_table extends table_sql {
         // Prepare actions.
         $o = '';
         // Edit action.
-        $editurl = new \moodle_url('/admin/tool/hitteshahuja/edit.php', ['id' => $row->id, 'courseid' => $row->courseid]);
+        $editurl = new \moodle_url('/admin/tool/hitteshahuja/edit.php', ['id' => $row->id]);
         $o = html_writer::link($editurl, get_string('edit', 'tool_hitteshahuja'),
             ['data-id' => $row->id, 'data-courseid' => $row->courseid,
                 'title' => get_string('edittitle', 'tool_hitteshahuja', format_string($row->name))]);
