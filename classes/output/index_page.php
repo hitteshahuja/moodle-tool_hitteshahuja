@@ -57,7 +57,7 @@ class index_page implements renderable, templatable {
      * Display table
      * @param renderer_base $output
      * @return stdClass
-     * @throws \coding_exception
+     * @throws \coding_exception|\moodle_exception
      */
     public function export_for_template(renderer_base $output) {
         $data = new stdClass();

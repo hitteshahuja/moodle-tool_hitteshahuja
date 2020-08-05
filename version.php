@@ -16,7 +16,7 @@
 
 /**
  * version info for tool_hitteshahuja
- * @package   plugintype_pluginname
+ * @package   tool_hitteshahuja
  * @copyright 2020, hitteshahuja
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

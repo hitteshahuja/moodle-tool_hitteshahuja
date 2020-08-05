@@ -45,7 +45,10 @@ class tool_hitteshahuja_testcase extends advanced_testcase {
 
     /**
      * Test delete entry method
+     * @throws coding_exception
      * @throws dml_exception
+     * @throws moodle_exception
+     * @throws require_login_exception
      */
     public function test_delete() {
         global $DB;
