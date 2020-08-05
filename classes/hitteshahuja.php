@@ -15,6 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Class file for tool_hitteshahuja
  * @package   tool_hitteshahuja
  * @copyright 2020, hitteshahuja
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -58,7 +59,7 @@ class hitteshahuja {
     /**
      * hitteshahuja constructor.
      * @param $courseid
-     * @param null $id
+     * @param int $id
      */
     public function __construct($courseid, int $id = null) {
         $this->id = $id;

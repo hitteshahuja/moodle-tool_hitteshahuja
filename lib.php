@@ -15,6 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Lib file for tool hitteshahuja
  * @package   tool_hitteshahuja
  * @copyright 2020, hitteshahuja
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -24,6 +25,7 @@ defined('MOODLE_INTERNAL') || die();
 
 // Navigation on this page is only shown when you are in the plugin context.
 /**
+ * Navigation on this page is only shown when you are in the plugin context.
  * @param $navigation
  * @param $course
  * @param $context
