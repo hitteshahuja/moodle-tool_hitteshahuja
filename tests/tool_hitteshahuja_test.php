@@ -59,7 +59,7 @@ class tool_hitteshahuja_testcase extends advanced_testcase {
         $teacher = $this->getDataGenerator()->create_and_enrol($course, 'editingteacher');
         $this->setUser($teacher);
         // Try delete.
-        $deleted = \tool_hitteshahuja::delete_entry($toolid);
+        $deleted = \tool_hitteshahuja\hitteshahuja::delete_entry($toolid);
         $this->assertTrue($deleted);
         $this->assertFalse($DB->record_exists('tool_hitteshahuja', ['id' => $toolid]));
     }
