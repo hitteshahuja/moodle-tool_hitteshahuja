@@ -25,5 +25,5 @@ Feature: Edit an existing tool entry
     And I click on "Edit" "link" in the "BehatCourseEntry" "table_row"
     And I set the field "Name" to "BehatCourseEntry2"
     #And I check "Completed"
-    And I click on "Add" "button"
+    And I click on "Add" "link"
     Then I should see "BehatCourseEntry2" in the "BehatCourseEntry2" "table_row"

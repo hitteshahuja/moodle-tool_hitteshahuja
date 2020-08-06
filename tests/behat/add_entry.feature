@@ -22,5 +22,5 @@ Feature: Add new tool entry
     And I click on "Add" "link"
     And I set the field "Name" to "BehatCourseEntry"
     #And I click on "Completed" "checkbox"
-    And I click on "Add" "button"
+    And I click on "Add" "link"
     Then I should see "No" in the "BehatCourseEntry" "table_row"
