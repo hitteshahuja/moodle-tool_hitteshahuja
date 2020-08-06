@@ -31,7 +31,7 @@ import {get_strings as getStrings} from 'core/str';
 const init = () => {
     var deleteelement = $('.deletetool');
     const pendingPromise = new Pending('tool_hitteshahuja/index_page');
-    deleteelement.on('click', function (e) {
+    $(document).on('click', '.deletetool', function (e) {
         e.preventDefault();
         var dataId = $(this).attr("data-id");
         var courseId = $(this).attr("data-courseid");
@@ -74,14 +74,12 @@ const init = () => {
                             }.bind(this))
                                 .fail(Notification.exception);
                         });
-
                     }).catch(Notification.exception);
             });
             return;
         }).catch(Notification.exception);
         // Once deleted , reload the template again.
         pendingPromise.resolve();
-
     });
 };
 const deleteEntry = async (id) => {
