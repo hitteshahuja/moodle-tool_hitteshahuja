@@ -31,7 +31,7 @@ if ($id = optional_param('id', null, PARAM_INT)) {
     // Button text to be save changes.
     $savebuttontext = get_string('save');
     $pageheading = get_string('edit', 'tool_hitteshahuja');
-} elseif ($deleteid = optional_param('delete', null, PARAM_INT)) {
+} else if ($deleteid = optional_param('delete', null, PARAM_INT)) {
     $toolhitteshahuja = new tool_hitteshahuja\hitteshahuja($deleteid);
     $instance = $toolhitteshahuja->create_tool_instance();
     $courseid = $instance->courseid;

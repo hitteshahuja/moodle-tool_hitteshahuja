@@ -42,5 +42,4 @@ global $PAGE;
 $output = $PAGE->get_renderer('tool_hitteshahuja');
 $renderable = new \tool_hitteshahuja\output\index_page($course->id, $url);
 echo $output->render_index_page($renderable);
-//$editurl = new moodle_url('/admin/tool/hitteshahuja/edit.php', ['courseid' => $id]);
 echo $OUTPUT->footer();
