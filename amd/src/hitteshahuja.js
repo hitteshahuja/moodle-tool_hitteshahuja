@@ -29,7 +29,6 @@ import Templates from 'core/templates';
 import {get_strings as getStrings} from 'core/str';
 
 const init = () => {
-    var deleteelement = $('.deletetool');
     const pendingPromise = new Pending('tool_hitteshahuja/index_page');
     $(document).on('click', '.deletetool', function (e) {
         e.preventDefault();
