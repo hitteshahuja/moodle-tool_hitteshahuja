@@ -15,6 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Display table output class
  * @package   tool_hitteshahuja
  * @copyright 2020, hitteshahuja
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -46,7 +47,7 @@ class display_table extends table_sql {
 
     /**
      * display_table constructor.
-     * @param $courseid
+     * @param int $courseid
      * @throws coding_exception
      */
     public function __construct($courseid) {
@@ -84,6 +85,7 @@ class display_table extends table_sql {
     }
 
     /**
+     * Completed column
      * @param stdClass $row
      * @return string
      */
@@ -98,6 +100,7 @@ class display_table extends table_sql {
     }
 
     /**
+     * Priority Column
      * @param stdClass $row
      * @return string
      */
@@ -112,6 +115,7 @@ class display_table extends table_sql {
     }
 
     /**
+     * Actions column
      * @param stdClass $row
      * @return string
      * @throws \moodle_exception
@@ -134,6 +138,7 @@ class display_table extends table_sql {
     }
 
     /**
+     * time created column
      * @param $row
      * @return string
      */
@@ -146,6 +151,7 @@ class display_table extends table_sql {
     }
 
     /**
+     * time modified column
      * @param $row
      * @return string
      */
@@ -158,6 +164,7 @@ class display_table extends table_sql {
     }
 
     /**
+     * Define table columns
      * @param $cols
      */
     private function define_table_columns($cols) {
@@ -165,6 +172,7 @@ class display_table extends table_sql {
     }
 
     /**
+     * Define table headers
      * @param $cols
      */
     private function define_table_headers($cols) {

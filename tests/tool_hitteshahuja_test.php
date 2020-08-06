@@ -14,18 +14,15 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-/**
- * @package   tool_hitteshahuja
- * @copyright 2020, hitteshahuja
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
-
 defined('MOODLE_INTERNAL') || die();
 global $CFG;
 require_once($CFG->dirroot . '/admin/tool/hitteshahuja/classes/hitteshahuja.php');
 
 /**
  * Class tool_hitteshahuja_testcase
+ * @package   tool_hitteshahuja
+ * @copyright 2020, hitteshahuja
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class tool_hitteshahuja_testcase extends advanced_testcase {
 

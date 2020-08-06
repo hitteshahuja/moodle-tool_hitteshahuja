@@ -24,7 +24,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 /** Upgrade script.
- * @param $oldversion
+ * @param int $oldversion
  * @return bool
  * @throws ddl_exception
  * @throws downgrade_exception
