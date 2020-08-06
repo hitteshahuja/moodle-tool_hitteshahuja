@@ -25,7 +25,7 @@ use tool_hitteshahuja\output\index_page;
  * Class tool_hitteshahuja_external
  * @copyright 2020, hitteshahuja
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @package tool_hitteshahuja\external
+ * @package tool_hitteshahuja
  */
 class tool_hitteshahuja_external extends \external_api {
     /**
