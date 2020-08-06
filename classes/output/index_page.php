@@ -14,12 +14,12 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-/*
+/**
  * Class index_page
  * @package   tool_hitteshahuja
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @copyright 2020, hitteshahuja
- */
+ **/
 namespace tool_hitteshahuja\output;
 defined('MOODLE_INTERNAL') || die();
 
@@ -47,8 +47,8 @@ class index_page implements renderable, templatable {
 
     /**
      * index_page constructor.
-     * @param $courseid
-     * @param $url
+     * @param int $courseid
+     * @param \moodle_url $url
      */
     public function __construct($courseid, $url) {
         $this->courseid = $courseid;

@@ -13,16 +13,16 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
+/**
+ * Add entry form file
+ * @package   tool_hitteshahuja
+ * @copyright 2020, hitteshahuja
+ **/
 namespace tool_hitteshahuja;
 
 use coding_exception;
 use dml_exception;
-/*
- * Add entry form file
- * @package   tool_hitteshahuja
- * @copyright 2020, hitteshahuja
- */
+
 defined('MOODLE_INTERNAL') || die();
 require_once("$CFG->libdir/formslib.php");
 
