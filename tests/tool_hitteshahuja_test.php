@@ -29,14 +29,14 @@ require_once($CFG->dirroot . '/admin/tool/hitteshahuja/classes/hitteshahuja.php'
 class tool_hitteshahuja_testcase extends advanced_testcase {
 
     /**
-     *
+     * Add entry test
      */
     public function test_add() {
 
     }
 
     /**
-     *
+     * Update entry test
      */
     public function test_update() {
 

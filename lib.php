@@ -26,9 +26,9 @@ defined('MOODLE_INTERNAL') || die();
 // Navigation on this page is only shown when you are in the plugin context.
 /**
  * Navigation on this page is only shown when you are in the plugin context.
- * @param $navigation
- * @param $course
- * @param $context
+ * @param stdClass $navigation
+ * @param stdClass $course
+ * @param context $context
  * @throws coding_exception
  * @throws moodle_exception
  */

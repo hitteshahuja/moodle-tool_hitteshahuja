@@ -18,7 +18,9 @@ namespace tool_hitteshahuja;
 
 use coding_exception;
 use dml_exception;
-
+/*
+ * Add entry form file
+ */
 defined('MOODLE_INTERNAL') || die();
 require_once("$CFG->libdir/formslib.php");
 

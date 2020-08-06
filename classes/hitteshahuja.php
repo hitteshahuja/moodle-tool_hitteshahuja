@@ -67,7 +67,7 @@ class hitteshahuja {
 
     /**
      * Create an instance of the tool
-     * @return hitteshahuja
+     * @return \stdClass
      * @throws \dml_exception
      */
     public function create_tool_instance() {
@@ -89,7 +89,7 @@ class hitteshahuja {
 
     /**
      * Get course for instance.
-     * @param $courseid
+     * @param int $courseid
      * @return bool|false|mixed|\stdClass
      * @throws \dml_exception
      */
@@ -101,7 +101,7 @@ class hitteshahuja {
 
     /**
      * Display all entries.
-     * @param $url
+     * @param \moodle_url $url
      * @return mixed
      */
     public function display_all_entries($url) {
@@ -113,7 +113,7 @@ class hitteshahuja {
 
     /**
      * Add a new tool entry
-     * @param $data
+     * @param \stdClass $data
      * @return bool|int
      * @throws \dml_exception
      */
@@ -125,7 +125,7 @@ class hitteshahuja {
 
     /**
      * Update an existing entry.
-     * @param $data
+     * @param \stdClass $data
      * @return bool
      * @throws \dml_exception
      */
@@ -136,7 +136,7 @@ class hitteshahuja {
 
     /**
      * Delete an entry.
-     * @param $entryid
+     * @param int $entryid
      * @return bool
      * @throws \coding_exception
      * @throws \dml_exception
