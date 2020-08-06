@@ -66,9 +66,7 @@ const init = () => {
                             }
                         }])[0].then((data) => {
                             // Reload the template.
-                            console.log(data);
                             Templates.render('tool_hitteshahuja/index_page', data).then(function (html) {
-                                console.log(html);
                                 $('#toolhitteshahujatable').html(html);
                                 return;
                             }.bind(this))
