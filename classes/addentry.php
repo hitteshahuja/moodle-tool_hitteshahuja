@@ -16,6 +16,7 @@
 /**
  * Add entry form file
  * @package   tool_hitteshahuja
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @copyright 2020, hitteshahuja
  **/
 namespace tool_hitteshahuja;
