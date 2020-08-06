@@ -71,6 +71,7 @@ class tool_hitteshahuja_external extends \external_api {
     }
 
     /**
+     * Returns template object
      * @param int $courseid
      * @return stdClass
      * @throws coding_exception
@@ -96,6 +97,7 @@ class tool_hitteshahuja_external extends \external_api {
     }
 
     /**
+     * Returns template object parameters
      * @return external_function_parameters
      */
     public static function return_template_object_parameters() {
@@ -105,6 +107,7 @@ class tool_hitteshahuja_external extends \external_api {
     }
 
     /**
+     * Returns template object returns value
      * @return external_single_structure
      */
     public static function return_template_object_returns() {
