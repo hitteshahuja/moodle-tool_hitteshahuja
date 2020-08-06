@@ -21,9 +21,9 @@ Feature: Edit an existing tool entry
     And I navigate to "My first Moodle plugin" in current page administration
     And I click on "Add" "link"
     And I set the field "Name" to "BehatCourseEntry"
-    And I click on "Add" "button"
+    Then I press "Add"
     And I click on "Edit" "link" in the "BehatCourseEntry" "table_row"
     And I set the field "Name" to "BehatCourseEntry2"
     #And I check "Completed"
-    And I click on "Add" "link"
+    Then I press "Save"
     Then I should see "BehatCourseEntry2" in the "BehatCourseEntry2" "table_row"
