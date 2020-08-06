@@ -13,7 +13,9 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
+/*
+ * External file for tool
+ */
 defined('MOODLE_INTERNAL') || die();
 require_once($CFG->libdir . '/externallib.php');
 
@@ -28,7 +30,7 @@ use tool_hitteshahuja\output\index_page;
 class tool_hitteshahuja_external extends \external_api {
     /**
      * Delete entry
-     * @param $id
+     * @param int $id
      * @return array
      * @throws coding_exception
      * @throws dml_exception
@@ -69,7 +71,7 @@ class tool_hitteshahuja_external extends \external_api {
     }
 
     /**
-     * @param $courseid
+     * @param int $courseid
      * @return stdClass
      * @throws coding_exception
      * @throws invalid_parameter_exception
