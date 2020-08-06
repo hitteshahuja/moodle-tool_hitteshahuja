@@ -55,9 +55,8 @@ class addentry extends \moodleform {
 
     }
 
-    // Custom validation should be added here.
-
     /**
+     * Custom validation should be added here.
      * @param array $data
      * @param array $files
      * @return array

@@ -35,8 +35,6 @@ class tool_hitteshahuja_external extends \external_api {
      * @throws coding_exception
      * @throws dml_exception
      * @throws invalid_parameter_exception
-     * @throws moodle_exception
-     * @throws require_login_exception
      */
     public static function delete_entry($id) {
         $params = self::validate_parameters(self::delete_entry_parameters(),
@@ -77,8 +75,6 @@ class tool_hitteshahuja_external extends \external_api {
      * @throws coding_exception
      * @throws invalid_parameter_exception
      * @throws moodle_exception
-     * @throws required_capability_exception
-     * @throws restricted_context_exception
      */
     public static function return_template_object($courseid) {
         $params = self::validate_parameters(self::return_template_object_parameters(),

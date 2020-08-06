@@ -30,7 +30,7 @@ use tool_hitteshahuja\hitteshahuja;
  * Class index_page
  * @copyright 2020, hitteshahuja
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @package tool_hitteshahuja\output
+ * @package tool_hitteshahuja
  */
 class index_page implements renderable, templatable {
     /**
@@ -61,13 +61,12 @@ class index_page implements renderable, templatable {
     public function export_for_template(renderer_base $output) {
         $data = new stdClass();
         $o = '';
-        $toolhitteshahuja = new hitteshahuja($this->courseid);
         $editurl = new \moodle_url('/admin/tool/hitteshahuja/edit.php', ['courseid' => $this->courseid]);
 
         ob_start();
         $table = new \tool_hitteshahuja\output\display_table($this->courseid);
         $table->baseurl = $this->url;
-        $tableout = $table->out(50, true);
+        $table->out(50, true);
         $coursecontext = \context_course::instance($this->courseid);
         if (has_capability('tool/hitteshahuja:edit', $coursecontext)) {
             $data->button = \html_writer::link($editurl, get_string('add', 'tool_hitteshahuja'),
