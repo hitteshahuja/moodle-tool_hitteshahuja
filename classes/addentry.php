@@ -20,6 +20,8 @@ use coding_exception;
 use dml_exception;
 /*
  * Add entry form file
+ * @package   tool_hitteshahuja
+ * @copyright 2020, hitteshahuja
  */
 defined('MOODLE_INTERNAL') || die();
 require_once("$CFG->libdir/formslib.php");

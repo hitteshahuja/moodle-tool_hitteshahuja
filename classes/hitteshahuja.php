@@ -16,6 +16,8 @@
 
 /**
  * Class file for tool_hitteshahuja
+ * @copyright 2020, hitteshahuja
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 namespace tool_hitteshahuja;
