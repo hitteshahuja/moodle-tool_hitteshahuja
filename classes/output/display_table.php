@@ -37,7 +37,9 @@ use table_sql;
 
 /**
  * Class display_table
- * @package tool_hitteshahuja\output
+ * @package tool_hitteshahuja
+ * @copyright 2020, hitteshahuja
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class display_table extends table_sql {
     /**
@@ -139,7 +141,7 @@ class display_table extends table_sql {
 
     /**
      * time created column
-     * @param $row
+     * @param stdClass $row
      * @return string
      */
     public function col_timecreated($row) {
@@ -152,7 +154,7 @@ class display_table extends table_sql {
 
     /**
      * time modified column
-     * @param $row
+     * @param stdClass $row
      * @return string
      */
     public function col_timemodified($row) {
@@ -165,7 +167,7 @@ class display_table extends table_sql {
 
     /**
      * Define table columns
-     * @param $cols
+     * @param stdClass $cols
      */
     private function define_table_columns($cols) {
         $this->define_columns(array_keys($cols));
@@ -173,7 +175,7 @@ class display_table extends table_sql {
 
     /**
      * Define table headers
-     * @param $cols
+     * @param stdClass $cols
      */
     private function define_table_headers($cols) {
         $this->define_headers(array_values($cols));
