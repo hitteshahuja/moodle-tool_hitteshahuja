@@ -59,7 +59,6 @@ $PAGE->set_heading($pageheading);
 $output = $PAGE->get_renderer('tool_hitteshahuja');
 // Show the form.
 // Load existing data.
-
 $editform = new \tool_hitteshahuja\addentry(null, ['buttontext' => $savebuttontext, 'data' => $instance, 'courseid' => $courseid]);
 // Form processing and displaying is done here.
 $indexurl = new moodle_url('/admin/tool/hitteshahuja/index.php', ['id' => $courseid]);
@@ -70,6 +69,7 @@ if ($editform->is_cancelled()) {
     // Handle form processing.
     if ($fromform->id) {
         // Update.
+        $fromform->timemodified = time();
         tool_hitteshahuja\hitteshahuja::update_entry($fromform);
         redirect($indexurl);
     } else {
@@ -82,7 +82,6 @@ if ($editform->is_cancelled()) {
             redirect($indexurl);
         }
     }
-
 } else {
     echo $output->header();
     // Displays the form.
